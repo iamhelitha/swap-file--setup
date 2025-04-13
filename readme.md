@@ -30,7 +30,7 @@ This script allows you to **easily create and configure swap memory** on your Li
 You can run this script in **one line** directly from your terminal:
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/iamhelitha/swap-file--setup/main/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/iamhelitha/swap-file-setup/main/install.sh)
 ```
 
 Replace `YOUR_USERNAME` and `YOUR_REPO` with your actual GitHub username and repository name.
