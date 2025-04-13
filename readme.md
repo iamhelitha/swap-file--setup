@@ -1,8 +1,3 @@
-Here’s a complete `README.md` for your GitHub repo, including usage instructions, supported OS, and a clean title for the project:
-
----
-
-```markdown
 # 💾 Swap File Auto Setup Script
 
 This script allows you to **easily create and configure swap memory** on your Linux VPS (ideal for low-RAM servers like those with 1GB RAM). It interactively guides you through the process and applies sensible defaults if you just press `Enter`.
@@ -16,6 +11,7 @@ This script allows you to **easily create and configure swap memory** on your Li
 - Configures swappiness and cache pressure
 - Works with `fallocate` or falls back to `dd`
 - Permanently persists settings across reboots
+- Detects and updates existing swap files if requested
 
 ---
 
@@ -34,7 +30,7 @@ This script allows you to **easily create and configure swap memory** on your Li
 You can run this script in **one line** directly from your terminal:
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/setup-swap.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/iamhelitha/swap-file--setup/main/install.sh)
 ```
 
 Replace `YOUR_USERNAME` and `YOUR_REPO` with your actual GitHub username and repository name.
@@ -43,11 +39,12 @@ Replace `YOUR_USERNAME` and `YOUR_REPO` with your actual GitHub username and rep
 
 ## 🛠️ What It Does
 
-1. Asks for the desired swap size (e.g. `1G`, `512M`) — defaults to `1G`
-2. Creates a swap file and enables it
-3. Configures `vm.swappiness` and `vm.vfs_cache_pressure`
-4. Adds swap file to `/etc/fstab` for persistence
-5. Shows memory status at the end
+1. Checks if swap is already enabled and offers to update it
+2. Asks for the desired swap size (e.g. `1G`, `512M`) — defaults to `1G`
+3. Creates a swap file and enables it
+4. Configures `vm.swappiness` and `vm.vfs_cache_pressure`
+5. Adds swap file to `/etc/fstab` for persistence
+6. Shows memory status at the end
 
 ---
 
@@ -55,10 +52,10 @@ Replace `YOUR_USERNAME` and `YOUR_REPO` with your actual GitHub username and rep
 
 ```bash
 ==============================
-  SWAP FILE SETUP FOR VPS  
+  SWAP FILE SETUP FOR VPS
 ==============================
 
-Enter swap size (e.g., 1G, 512M) [default: 1G]: 
+Enter swap size (e.g., 1G, 512M) [default: 1G]:
 [*] Creating a 1G swap file at /swapfile...
 
 [✓] Swap successfully enabled with 1G
@@ -75,6 +72,3 @@ Swap helps extend available memory when RAM is full — crucial on small VPS ser
 ## 📃 License
 
 MIT License. Use freely and modify as needed.
-```
-
----
